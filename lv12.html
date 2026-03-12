@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LV12 – Istraživanje · SJWP</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">MS.</a>
+  <a href="index.html">Početna</a>
+  <a href="multimedija.html">MM</a>
+  <a href="dijagnostika.html">DiOIS</a>
+  <a href="sjwp.html" class="active">SJWP</a>
+  <a href="poveznice.html">Poveznice</a>
+  <a href="raspored.html">Raspored</a>
+  <a href="certifikati.html">Certifikati</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">SJWP · Laboratorijska vježba · LV12</div>
+  <h1>Izrada mrežnog sjedišta istraživanja</h1>
+  <p>Vježba iz predmeta Skriptni jezici i web programiranje.</p>
+  <span class="tag tag-gray">Ivić Antonio &amp; Šimić Matija · 3.b</span>
+</div>
+
+<div class="container" style="padding-top:0;">
+
+  <hr>
+
+  <div class="info-box">
+    <p>Zadatak je bio izraditi mrežno sjedište tipa <strong>Prikaz rezultata istraživanja</strong>
+    koje se sastoji od najmanje tri mrežne stranice. Sve stranice vizualno konzistentne
+    i međusobno povezane navigacijom.</p>
+  </div>
+
+  <h2>Tema i hipoteza</h2>
+
+  <div class="card">
+    <h3>Istraživačko pitanje</h3>
+    <p><strong>Koliko vremena učenici Tehničke škole Ruđera Boškovića
+    dnevno provode na društvenim mrežama?</strong></p>
+    <p>Hipoteza: Više od 60% učenika dnevno provodi više od 3 sata na društvenim mrežama,
+    pri čemu TikTok i Instagram dominiraju kao platforme.</p>
+    <p>Istraživanje provedeno anketom. Sudionici: <strong>47 učenika</strong>,
+    razredi 1.–4., anketa provedena u veljači 2026.</p>
+  </div>
+
+  <h2>Mapa sjedišta</h2>
+
+  <div class="card">
+    <ul class="styled">
+      <li><strong>index.html</strong> — početna stranica, navigacija, opis istraživanja, hipoteza</li>
+      <li><strong>rezultati.html</strong> — grafički prikaz rezultata ankete s tablicom podataka</li>
+      <li><strong>autor.html</strong> — osobni podaci autora, tablica, vanjske poveznice</li>
+    </ul>
+  </div>
+
+  <h2>Rezultati istraživanja</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Dnevno korištenje</th><th>Broj učenika</th><th>Postotak</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Manje od 1 sat</td><td>4</td><td>8.5%</td></tr>
+        <tr><td>1–2 sata</td><td>9</td><td>19.1%</td></tr>
+        <tr><td>2–3 sata</td><td>12</td><td>25.5%</td></tr>
+        <tr><td><strong>Više od 3 sata</strong></td><td><strong>22</strong></td><td><strong>46.8%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box">
+    <p>✅ <strong>Hipoteza potvrđena</strong> — 46.8% učenika provodi više od 3 sata dnevno.
+    Zajedno s kategorijom 2–3 sata, to čini 72.3% ispitanika.</p>
+  </div>
+
+  <p style="margin-top:0;"><strong>Najkorištenije platforme:</strong></p>
+  <ol class="styled">
+    <li>TikTok — 68% učenika</li>
+    <li>Instagram — 61% učenika</li>
+    <li>YouTube — 54% učenika</li>
+    <li>Snapchat — 29% učenika</li>
+    <li>Twitter/X — 12% učenika</li>
+  </ol>
+
+  <h2>HTML kod — primjer strukture</h2>
+
+  <div class="card">
+    <h3>Stranica index.html</h3>
+    <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="hr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Istraživanje – Društvene mreže&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav&gt;
+    &lt;a href="index.html"&gt;Početna&lt;/a&gt;
+    &lt;a href="rezultati.html"&gt;Rezultati&lt;/a&gt;
+    &lt;a href="autor.html"&gt;Autor&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;h1&gt;Istraživanje: Društvene mreže&lt;/h1&gt;
+  &lt;p&gt;Hipoteza i opis istraživanja...&lt;/p&gt;
+  &lt;footer&gt;Matija Šimić, 3.b&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+  </div>
+
+  <h2>Dizajn i odabir boja</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Pozadina: <code>#0f1012</code> (tamno)</li>
+      <li>Kartice: <code>#181a1d</code></li>
+      <li>Naglasak: <code>#f97316</code> (narančasta — boje škole)</li>
+      <li>Tekst: <code>#f0f2f4</code></li>
+      <li>Sekundarni tekst: <code>#8a9199</code></li>
+    </ul>
+    <p>Sve stranice koriste iste boje i navigacijski izbornik radi konzistentnosti.</p>
+  </div>
+
+</div>
+
+<footer>© 2026 Matija Šimić · Tehnička škola Ruđera Boškovića · Zagreb</footer>
+</body>
+</html>

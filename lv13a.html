@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LV3 – Sustavi boja · SJWP</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">MS.</a>
+  <a href="index.html">Početna</a>
+  <a href="multimedija.html">MM</a>
+  <a href="dijagnostika.html">DiOIS</a>
+  <a href="sjwp.html" class="active">SJWP</a>
+  <a href="poveznice.html">Poveznice</a>
+  <a href="raspored.html">Raspored</a>
+  <a href="certifikati.html">Certifikati</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">SJWP · Laboratorijska vježba · LV3</div>
+  <h1>Sustavi boja na zaslonu i pisaču</h1>
+  <p>Vježba iz predmeta Skriptni jezici i web programiranje.</p>
+  <span class="tag tag-gray">Špoljarić Leon &amp; Šimić Matija · 3.b</span>
+</div>
+
+<div class="container" style="padding-top:0;">
+
+  <hr>
+  <h2>Priprema za vježbu</h2>
+
+  <div class="card">
+    <h3>1. Koji sustavi boja se najčešće koriste?</h3>
+    <p>Na zaslonu: <strong>RGB</strong> (Red, Green, Blue).<br>
+    Na pisaču (tisku): <strong>CMYK</strong> (Cyan, Magenta, Yellow, Key/Black).</p>
+  </div>
+
+  <div class="card">
+    <h3>2. RGB i RGBA</h3>
+    <p>RGB: svaka boja definirana intenzitetom crvene, zelene i plave komponente (0–255).</p>
+    <pre>rgb(255, 0, 0)       /* čista crvena */
+rgb(0, 0, 255)       /* čista plava  */
+rgba(255, 0, 0, 0.5) /* crvena 50% prozirnosti */</pre>
+    <p>RGBA dodaje Alpha kanal — prozirnost od 0 (potpuno prozirno) do 1 (neprozirno).</p>
+  </div>
+
+  <div class="card">
+    <h3>3. CMYK</h3>
+    <p>Subtraktivni sustav za tisak — boje oduzimaju svjetlost od bijele podloge.
+    Mješavinom C, M, Y nastaje tamna boja, ali ne savršeno crna — zato postoji K (Black) kanal.
+    Koristi se u štampi na papir: časopisi, plakati, knjige.</p>
+  </div>
+
+  <div class="card">
+    <h3>4. Paleta boja</h3>
+    <p>Skup boja koje se koriste zajedno kako bi se osigurala vizualna usklađenost i stil.</p>
+    <ul class="styled">
+      <li>Dizajn web stranica</li>
+      <li>UI/UX dizajn (korisničko sučelje)</li>
+      <li>Brendiranje (logotipi, vizitke)</li>
+      <li>Grafički dizajn i ilustracije</li>
+    </ul>
+    <div class="color-demo" style="margin-top:0.75rem;">
+      <div class="swatch" style="background:#ef4444;">#ef4444</div>
+      <div class="swatch" style="background:#f97316;">#f97316</div>
+      <div class="swatch" style="background:#eab308;">#eab308</div>
+      <div class="swatch" style="background:#22c55e;">#22c55e</div>
+      <div class="swatch" style="background:#3b82f6;">#3b82f6</div>
+      <div class="swatch" style="background:#8b5cf6;">#8b5cf6</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>5. Material Design sustav boja</h3>
+    <p>Googlov dizajn sustav za vizualni stil aplikacija i web stranica. Značajke:</p>
+    <ul class="styled">
+      <li>Tonal palettes — svaka boja ima 13 tonova</li>
+      <li>Dostupnost (accessibility) — dovoljan kontrast teksta i pozadine</li>
+      <li>Tamni i svijetli način rada (dark/light mode)</li>
+      <li>Semantičke uloge: primarna, error, warning, success boja</li>
+    </ul>
+  </div>
+
+  <hr>
+  <h2>Usporedna tablica sustava boja</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Sustav</th><th>Komponente</th><th>Tip</th><th>Primjena</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>RGB</strong></td><td>Red, Green, Blue</td><td>Aditivno</td><td>Zasloni, web</td></tr>
+        <tr><td><strong>RGBA</strong></td><td>Red, Green, Blue, Alpha</td><td>Aditivno + prozirnost</td><td>Web, UI</td></tr>
+        <tr><td><strong>CMYK</strong></td><td>Cyan, Magenta, Yellow, Black</td><td>Subtraktivno</td><td>Tisak</td></tr>
+        <tr><td><strong>HEX</strong></td><td>#RRGGBB</td><td>Aditivno</td><td>Web programiranje</td></tr>
+        <tr><td><strong>HSL</strong></td><td>Hue, Saturation, Lightness</td><td>Aditivno</td><td>CSS, UI alati</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box">
+    <p>📌 <strong>Zaključak:</strong> RGB i HEX koriste se za digitalni prikaz (ekrani, web),
+    CMYK je isključivo za tisak. Na webu je HEX zapis najčešći zbog kratkoće i čitljivosti.</p>
+  </div>
+
+</div>
+
+<footer>© 2026 Matija Šimić · Tehnička škola Ruđera Boškovića · Zagreb</footer>
+</body>
+</html>

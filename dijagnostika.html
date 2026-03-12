@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiOIS – Dijagnostika IS · Matija Šimić</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">MS.</a>
+  <a href="index.html">Početna</a>
+  <a href="multimedija.html">MM</a>
+  <a href="dijagnostika.html" class="active">DiOIS</a>
+  <a href="sjwp.html">SJWP</a>
+  <a href="poveznice.html">Poveznice</a>
+  <a href="raspored.html">Raspored</a>
+  <a href="certifikati.html">Certifikati</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Predmet · Tehničar za računalstvo</div>
+  <h1>Dijagnostika i održavanje IS</h1>
+  <p>Mrežni protokoli usmjeravanja, dijagnostika i analiza mreža.
+  Vježbe se rade u alatu <strong>Cisco Packet Tracer</strong>.</p>
+  <div style="margin-top:0.75rem;">
+    <span class="tag">Packet Tracer</span>
+    <span class="tag">RIP</span>
+    <span class="tag">OSPF</span>
+    <span class="tag">ICMP</span>
+    <span class="tag">ping / tracert</span>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;">
+
+  <hr>
+  <h2>Materijali za učenje</h2>
+
+  <div class="pptx-card">
+    <div class="pptx-info">
+      <h3>Stanja sustava</h3>
+      <p>Prikaz mogućih stanja informacijskog sustava i prijelazi između njih — operativno, neoperativno, degradirano stanje.</p>
+      <span class="tag tag-gray">3.b · Šimić Matija</span>
+    </div>
+    <div class="pptx-btns">
+      <a href="assets/files/10__Stanja_sustava___Kviz.pptx" download class="btn btn-secondary">⬇ Preuzmi</a>
+      <a href="https://docs.google.com/gview?url=https://M0414s.github.io/assets/files/10__Stanja_sustava___Kviz.pptx" target="_blank" class="btn btn-primary">↗ Otvori</a>
+    </div>
+  </div>
+
+  <div class="pptx-card">
+    <div class="pptx-info">
+      <h3>Pouzdanost sustava</h3>
+      <p>Pojam pouzdanosti, mjere pouzdanosti (MTBF, MTTR) i metode poboljšanja pouzdanosti informacijskih sustava.</p>
+      <span class="tag tag-gray">3.b · Šimić Matija</span>
+    </div>
+    <div class="pptx-btns">
+      <a href="assets/files/11__Pouzdanost___Kviz.pptx" download class="btn btn-secondary">⬇ Preuzmi</a>
+      <a href="https://docs.google.com/gview?url=https://M0414s.github.io/assets/files/11__Pouzdanost___Kviz.pptx" target="_blank" class="btn btn-primary">↗ Otvori</a>
+    </div>
+  </div>
+
+  <div class="pptx-card">
+    <div class="pptx-info">
+      <h3>Raspoloživost sustava</h3>
+      <p>Definicija i izračun raspoloživosti, utjecaj pojedinih komponenti na ukupnu raspoloživost sustava.</p>
+      <span class="tag tag-gray">3.b · Šimić Matija</span>
+    </div>
+    <div class="pptx-btns">
+      <a href="assets/files/12__Raspoloz_ivost___Kviz.pptx" download class="btn btn-secondary">⬇ Preuzmi</a>
+      <a href="https://docs.google.com/gview?url=https://M0414s.github.io/assets/files/12__Raspoloz_ivost___Kviz.pptx" target="_blank" class="btn btn-primary">↗ Otvori</a>
+    </div>
+  </div>
+
+  <hr>
+  <h2>Laboratorijske vježbe</h2>
+
+  <div class="card">
+    <h3>LV21 – Dijagnostika protokola RIP</h3>
+    <span class="tag tag-gray">Šimić Matija · 3.b</span>
+
+    <p style="margin-top:0.75rem;"><strong>Ključne karakteristike RIPv1</strong></p>
+    <ul class="styled">
+      <li>Metrika: broj skokova (maks. 15)</li>
+      <li>Ažuriranje: svakih 30 sekundi putem broadcasta</li>
+      <li>Nema podrške za CIDR, nema autentifikacije</li>
+      <li>Administrativna distanca (AD): <strong>120</strong></li>
+    </ul>
+
+    <p><strong>Provedba vježbe</strong></p>
+    <ul class="styled">
+      <li>Spajanje uređaja u Packet Traceru prema zadanoj topologiji</li>
+      <li>Provjera pingom: PC1 → R1 FA0/0, R1 S2/0, R2 S2/0</li>
+      <li>Pregled tablice: <code>show ip route</code></li>
+      <li>Konfiguracija dinamičke RIP rute</li>
+      <li>Debug: <code>debug ip rip</code></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>LV22 – Dijagnostika protokola OSPF</h3>
+    <span class="tag tag-gray">Kralj & Šimić · 3.b</span>
+
+    <p style="margin-top:0.75rem;"><strong>Problem bez OSPF-a</strong></p>
+    <p>Bez konfiguriranog usmjeravanja, ping između PC1 i PC2 ne radi — usmjernici
+    poznaju samo izravno povezane mreže (<em>connected routes</em>).</p>
+
+    <p><strong>Rezultati nakon konfiguracije OSPF-a</strong></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Naredba</th><th>Opis</th></tr></thead>
+        <tbody>
+          <tr><td><code>show ip route</code></td><td>Pojavljuju se O-rute — OSPF radi</td></tr>
+          <tr><td><code>show ip route summary</code></td><td>Ukupan broj ruta i memorija</td></tr>
+          <tr><td><code>show ip ospf neighbor</code></td><td>Popis OSPF susjeda</td></tr>
+          <tr><td><code>show ip protocols</code></td><td>Konfigurirani protokoli</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>LV23 – Napredno korištenje ping i tracert</h3>
+    <span class="tag tag-gray">Šimić Matija · 3.b</span>
+
+    <p style="margin-top:0.75rem;"><strong>ICMP protokol</strong></p>
+    <p>ICMP služi za slanje kontrolnih i dijagnostičkih poruka u IP mreži —
+    obavještavanje o greškama, dijagnostika i provjera dostupnosti.</p>
+
+    <p><strong>TTL polje</strong></p>
+    <p>TTL (Time To Live) određuje koliko puta paket može proći kroz mrežne uređaje.
+    Svaki ruter smanjuje TTL za 1. Kada TTL = 0, paket se odbacuje i šalje se
+    ICMP <em>Time Exceeded</em> poruka.</p>
+
+    <p><strong>Ključne činjenice</strong></p>
+    <ul class="styled">
+      <li>Zadana veličina paketa (Windows): <strong>32 bajta</strong></li>
+      <li>Zadano se šalju <strong>4 upita</strong></li>
+      <li>Tracert otkriva svaki hop između izvora i odredišta</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>© 2026 Matija Šimić · Tehnička škola Ruđera Boškovića · Zagreb</footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vježba – HTML Forma · SJWP</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .demo-box { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; margin: 1rem 0; }
+    .result-table { width: 100%; border-collapse: collapse; margin-top: 1.25rem; display: none; font-size: 0.85rem; }
+    .result-table th { background: rgba(249,115,22,0.15); color: var(--accent); padding: 0.55rem 0.9rem; text-align: left; border-bottom: 1px solid rgba(249,115,22,0.3); font-family: 'Outfit', sans-serif; font-size: 0.82rem; }
+    .result-table td { padding: 0.55rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--text); }
+    .success { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); color: #4ade80; padding: 0.75rem 1rem; border-radius: var(--radius); margin-top: 0.75rem; display: none; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">MS.</a>
+  <a href="index.html">Početna</a>
+  <a href="multimedija.html">MM</a>
+  <a href="dijagnostika.html">DiOIS</a>
+  <a href="sjwp.html" class="active">SJWP</a>
+  <a href="poveznice.html">Poveznice</a>
+  <a href="raspored.html">Raspored</a>
+  <a href="certifikati.html">Certifikati</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">SJWP · Laboratorijska vježba · HTML</div>
+  <h1>HTML forma i tablica</h1>
+  <p>Interaktivna vježba — HTML kod koji se izvodi direktno u pregledniku.</p>
+  <span class="tag tag-gray">Šimić Matija · 3.b</span>
+</div>
+
+<div class="container" style="padding-top:0;">
+
+  <hr>
+  <h2>Što je HTML forma?</h2>
+
+  <div class="card">
+    <p>HTML forma (<code>&lt;form&gt;</code>) omogućuje korisniku unos podataka.
+    Ključni elementi:</p>
+    <ul class="styled">
+      <li><code>&lt;input&gt;</code> — polje za unos (text, email, number, checkbox...)</li>
+      <li><code>&lt;select&gt;</code> — padajući izbornik</li>
+      <li><code>&lt;textarea&gt;</code> — višeredni tekst</li>
+      <li><code>&lt;label&gt;</code> — oznaka vezana uz element</li>
+      <li><code>&lt;button&gt;</code> — gumb za slanje</li>
+    </ul>
+  </div>
+
+  <h2>HTML kod</h2>
+  <pre>&lt;form id="anketa"&gt;
+  &lt;label for="ime"&gt;Ime i prezime:&lt;/label&gt;
+  &lt;input type="text" id="ime" required&gt;
+
+  &lt;label for="razred"&gt;Razred:&lt;/label&gt;
+  &lt;select id="razred"&gt;
+    &lt;option&gt;1. razred&lt;/option&gt;
+    &lt;option&gt;2. razred&lt;/option&gt;
+    &lt;option selected&gt;3. razred&lt;/option&gt;
+    &lt;option&gt;4. razred&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;label for="sati"&gt;Sati na društvenim mrežama:&lt;/label&gt;
+  &lt;input type="number" id="sati" min="0" max="24"&gt;
+
+  &lt;button type="submit"&gt;Pošalji&lt;/button&gt;
+&lt;/form&gt;</pre>
+
+  <h2>Živa demonstracija</h2>
+  <p>Ispuni formu i klikni Pošalji — podaci se prikazuju u tablici ispod.</p>
+
+  <div class="demo-box">
+    <form id="anketa" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="ime">Ime i prezime:</label>
+        <input type="text" id="ime" placeholder="Npr. Ana Horvat" required>
+      </div>
+      <div class="form-group">
+        <label for="razred">Razred:</label>
+        <select id="razred">
+          <option>1. razred</option>
+          <option>2. razred</option>
+          <option selected>3. razred</option>
+          <option>4. razred</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sati">Sati na društvenim mrežama dnevno:</label>
+        <input type="number" id="sati" min="0" max="24" placeholder="Npr. 3">
+      </div>
+      <div class="form-group">
+        <label for="platforma">Omiljena platforma:</label>
+        <input type="text" id="platforma" placeholder="Npr. TikTok">
+      </div>
+      <button type="submit">Pošalji odgovor</button>
+    </form>
+
+    <div class="success" id="msg">✅ Odgovor dodan u tablicu!</div>
+
+    <table class="result-table" id="tbl">
+      <thead>
+        <tr><th>#</th><th>Ime i prezime</th><th>Razred</th><th>Sati</th><th>Platforma</th></tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <h2>Što je HTML tablica?</h2>
+
+  <div class="card">
+    <p>HTML tablica (<code>&lt;table&gt;</code>) prikazuje podatke u redovima i stupcima.</p>
+    <pre>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Ime&lt;/th&gt;&lt;th&gt;Razred&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Ana Horvat&lt;/td&gt;&lt;td&gt;3.b&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</pre>
+  </div>
+
+</div>
+
+<footer>© 2026 Matija Šimić · Tehnička škola Ruđera Boškovića · Zagreb</footer>
+
+<script>
+  let n = 0;
+  function handleSubmit(e) {
+    e.preventDefault();
+    n++;
+    const ime = document.getElementById('ime').value;
+    const razred = document.getElementById('razred').value;
+    const sati = document.getElementById('sati').value || '—';
+    const platforma = document.getElementById('platforma').value || '—';
+    const row = `<tr><td>${n}</td><td>${ime}</td><td>${razred}</td><td>${sati}</td><td>${platforma}</td></tr>`;
+    document.getElementById('tbody').insertAdjacentHTML('beforeend', row);
+    document.getElementById('tbl').style.display = 'table';
+    const msg = document.getElementById('msg');
+    msg.style.display = 'block';
+    e.target.reset();
+    setTimeout(() => msg.style.display = 'none', 2500);
+  }
+</script>
+</body>
+</html>
