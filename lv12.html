@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LV12 – Istraživanje | SJWP – Matija Šimić</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">MS.</a>
+  <a href="index.html">Početna</a>
+  <a href="multimedija.html">Multimedija</a>
+  <a href="dijagnostika.html">Dijagnostika</a>
+  <a href="sjwp.html" class="active">SJWP</a>
+  <a href="poveznice.html">Poveznice</a>
+  <a href="raspored.html">Raspored</a>
+  <a href="certifikati.html">Certifikati</a>
+</nav>
+
+<div class="container">
+
+  <div class="hero-label" style="margin-top:2rem;">SJWP · Vježba 2 · LV12</div>
+  <h1>Izrada mrežnog sjedišta istraživanja</h1>
+  <p>Laboratorijska vježba iz predmeta Skriptni jezici i web programiranje.</p>
+  <span class="tag tag-gray">Ivić Antonio &amp; Šimić Matija · 3.b</span>
+
+  <hr class="section-line">
+
+  <h2>Opis vježbe</h2>
+  <div class="info-box">
+    <p>
+      Zadatak je bio izraditi mrežno sjedište tipa <strong>Prikaz rezultata istraživanja</strong>
+      koje se sastoji od najmanje tri mrežne stranice: index, stranica rezultata i stranica autora.
+      Sve stranice moraju vizualno biti konzistentne i međusobno povezane navigacijom.
+    </p>
+  </div>
+
+  <h2>Planiranje sjedišta</h2>
+
+  <div class="card">
+    <h3>Tema istraživanja</h3>
+    <p>
+      <strong>Istraživanje: Koliko vremena učenici Tehničke škole Ruđera Boškovića
+      dnevno provode na društvenim mrežama?</strong>
+    </p>
+    <p>
+      Hipoteza: Više od 60% učenika dnevno provodi više od 3 sata na društvenim mrežama,
+      pri čemu TikTok i Instagram dominiraju kao platforme.
+    </p>
+    <p>
+      Istraživanje je provedeno anketom unutar škole. Sudjelovalo je
+      <strong>47 učenika</strong>, od 1. do 4. razreda, oba spola.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Mapa sjedišta (site map)</h3>
+    <ul class="styled">
+      <li><strong>index.html</strong> — početna stranica, navigacija, opis istraživanja, hipoteza</li>
+      <li><strong>rezultati.html</strong> — grafički prikaz rezultata ankete</li>
+      <li><strong>autor.html</strong> — osobni podaci autora, tablica, vanjske poveznice</li>
+    </ul>
+  </div>
+
+  <h2>Stranica 1 – Index (Opis istraživanja)</h2>
+
+  <div class="card">
+    <h3>Sadržaj prve stranice</h3>
+    <p>Naslov istraživanja, navigacija na ostale stranice, osnovni podaci:</p>
+    <ul class="styled">
+      <li>Broj sudionika: 47 učenika</li>
+      <li>Raspon dobi: 14–19 godina</li>
+      <li>Metoda: online anketa (Google Forms)</li>
+      <li>Trajanje: 2 tjedna (veljača 2026.)</li>
+      <li>Hipoteza i njezino objašnjenje</li>
+    </ul>
+
+    <p style="margin-top:1rem;"><strong>Izgled stranice (layout):</strong></p>
+    <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="hr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Istraživanje – Društvene mreže&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav&gt;
+    &lt;a href="index.html"&gt;Početna&lt;/a&gt;
+    &lt;a href="rezultati.html"&gt;Rezultati&lt;/a&gt;
+    &lt;a href="autor.html"&gt;Autor&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;div class="container"&gt;
+    &lt;h1&gt;Istraživanje: Društvene mreže u školi&lt;/h1&gt;
+    &lt;p&gt;Opis istraživanja i hipoteza...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;footer&gt;Matija Šimić, 3.b&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+  </div>
+
+  <h2>Stranica 2 – Rezultati istraživanja</h2>
+
+  <div class="card">
+    <h3>Rezultati ankete</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Dnevno korištenje</th>
+          <th>Broj učenika</th>
+          <th>Postotak</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Manje od 1 sat</td><td>4</td><td>8.5%</td></tr>
+        <tr><td>1–2 sata</td><td>9</td><td>19.1%</td></tr>
+        <tr><td>2–3 sata</td><td>12</td><td>25.5%</td></tr>
+        <tr><td>Više od 3 sata</td><td>22</td><td>46.8%</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Zaključak:</strong> Hipoteza je potvrđena — 46.8% učenika provodi više od 3 sata
+    dnevno na društvenim mrežama, a zajedno s kategorijom 2–3 sata to čini 72.3% ispitanika.</p>
+
+    <p style="margin-top:0.5rem;"><strong>Najkorištenije platforme:</strong></p>
+    <ol class="styled">
+      <li>TikTok — 68% učenika</li>
+      <li>Instagram — 61% učenika</li>
+      <li>YouTube — 54% učenika</li>
+      <li>Snapchat — 29% učenika</li>
+      <li>Twitter/X — 12% učenika</li>
+    </ol>
+  </div>
+
+  <h2>Stranica 3 – Autor</h2>
+
+  <div class="card">
+    <h3>Podaci o autoru</h3>
+    <table>
+      <thead>
+        <tr><th>Polje</th><th>Podatak</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ime i prezime</td><td>Matija Šimić</td></tr>
+        <tr><td>Datum rođenja</td><td>2007.</td></tr>
+        <tr><td>Škola</td><td>Tehnička škola Ruđera Boškovića, Zagreb</td></tr>
+        <tr><td>Razred</td><td>3.b — Tehničar za računalstvo</td></tr>
+        <tr><td>Interesi</td><td>Trčanje, mrežna dijagnostika, web razvoj</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Dizajn i odabir boja</h2>
+  <div class="card">
+    <h3>Paleta boja sjedišta</h3>
+    <ul class="styled">
+      <li>Pozadina: <code>#0d1117</code> (tamno plavo-siva)</li>
+      <li>Kartice: <code>#161b22</code> (malo svjetlija)</li>
+      <li>Naglasak: <code>#22d3ee</code> (cyan)</li>
+      <li>Tekst: <code>#e6edf3</code> (gotovo bijela)</li>
+      <li>Sekundarni tekst: <code>#8b949e</code> (siva)</li>
+    </ul>
+    <p>Sve stranice koriste iste boje i isti navigacijski izbornik radi konzistentnosti.</p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Matija Šimić · Tehnička škola Ruđera Boškovića · Zagreb
+</footer>
+
+</body>
+</html>

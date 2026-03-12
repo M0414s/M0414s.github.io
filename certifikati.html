@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifikati – Matija Šimić</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .cert-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .cert-card:hover { border-color: var(--accent2); }
+    .cert-img {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: #fff;
+      padding: 6px;
+    }
+    .cert-info h3 { margin-bottom: 0.4rem; }
+    .cert-info p { margin-bottom: 0.5rem; }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    @media (max-width: 540px) {
+      .cert-card { flex-direction: column; }
+      .cert-img { width: 100px; height: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">MS.</a>
+  <a href="index.html">Početna</a>
+  <a href="multimedija.html">Multimedija</a>
+  <a href="dijagnostika.html">Dijagnostika</a>
+  <a href="sjwp.html">SJWP</a>
+  <a href="poveznice.html">Poveznice</a>
+  <a href="raspored.html">Raspored</a>
+  <a href="certifikati.html" class="active">Certifikati</a>
+</nav>
+
+<div class="container">
+
+  <div class="hero-label" style="margin-top:2rem;">Izvanškolski uspjesi</div>
+  <h1>Certifikati i diplome</h1>
+  <p>Potvrde, certifikati i diplome stečeni izvan redovne nastave.</p>
+
+  <hr class="section-line">
+
+  <div class="cert-card">
+    <img
+      src="assets/img/aws-cert.png"
+      alt="AWS Academy Cloud Foundations badge"
+      class="cert-img"
+    >
+    <div class="cert-info">
+      <h3>AWS Academy Cloud Foundations</h3>
+      <p>
+        <strong>Izdavač:</strong> Amazon Web Services Training and Certification<br>
+        <strong>Vrsta:</strong> Digitalna potvrda (badge)<br>
+        <strong>Status:</strong> <span class="tag" style="font-size:0.75rem;">Trained</span>
+      </p>
+      <p>
+        Potvrda o završenom tečaju AWS Academy Cloud Foundations koji pokriva temelje
+        računalstva u oblaku, arhitekturu AWS infrastrukture, ključne servise i
+        model naplate.
+      </p>
+      <div class="skill-list">
+        <span class="tag">AWS Architecture</span>
+        <span class="tag">AWS Cloud</span>
+        <span class="tag">AWS Core Services</span>
+        <span class="tag">AWS Pricing</span>
+        <span class="tag">AWS Support</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <p>
+      💡 AWS Academy Cloud Foundations tečaj pokriva osnove cloud computinga i priprema
+      za AWS Certified Cloud Practitioner ispit — temeljnu AWS certifikaciju za IT profesionalce.
+    </p>
+  </div>
+
+  <hr class="section-line">
+
+  <h2>Izvannastavne aktivnosti</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>🏃 Maraton</h3>
+      <p>
+        Sudjelovanje na maratonskom trčanju (42,195 km). Maratonsko trčanje zahtijeva
+        disciplinu, planiranje treninga i mentalna snagu — vještine koje se prenose na
+        sve aspekte rada.
+      </p>
+    </div>
+    <div class="card">
+      <h3>☁️ Cloud Computing</h3>
+      <p>
+        Samostalno učenje AWS platforme kroz AWS Academy program.
+        Stjecanje praktičnog znanja o cloud infrastrukturi, servisima i arhitekturalnim
+        principima.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Matija Šimić · Tehnička škola Ruđera Boškovića · Zagreb
+</footer>
+
+</body>
+</html>

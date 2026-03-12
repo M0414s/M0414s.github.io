@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vježba – HTML Forma | SJWP – Matija Šimić</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .render-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 1.5rem 0;
+    }
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      display: none;
+    }
+    .result-table th {
+      background: #22d3ee22;
+      color: #22d3ee;
+      padding: 0.6rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #22d3ee44;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+    }
+    .result-table td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .success-msg {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      margin-top: 1rem;
+      display: none;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">MS.</a>
+  <a href="index.html">Početna</a>
+  <a href="multimedija.html">Multimedija</a>
+  <a href="dijagnostika.html">Dijagnostika</a>
+  <a href="sjwp.html" class="active">SJWP</a>
+  <a href="poveznice.html">Poveznice</a>
+  <a href="raspored.html">Raspored</a>
+  <a href="certifikati.html">Certifikati</a>
+</nav>
+
+<div class="container">
+
+  <div class="hero-label" style="margin-top:2rem;">SJWP · Vježba 3 · HTML</div>
+  <h1>HTML forma i tablica</h1>
+  <p>
+    Ova stranica je primjer renderanog HTML koda koji se izvršava direktno u pregledniku.
+    Ispod je prikazan HTML kod i njegova živa demonstracija.
+  </p>
+
+  <hr class="section-line">
+
+  <h2>Što je HTML forma?</h2>
+  <p>
+    HTML forma (<code>&lt;form&gt;</code>) je element koji omogućuje korisniku unos podataka
+    koji se šalju na poslužitelj ili obrađuju skriptom. Forme su temelj interaktivnih web stranica.
+  </p>
+
+  <div class="card">
+    <h3>Ključni elementi forme</h3>
+    <ul class="styled">
+      <li><code>&lt;form&gt;</code> — vanjski omot, sadrži atribute <code>action</code> i <code>method</code></li>
+      <li><code>&lt;input&gt;</code> — polje za unos (text, email, number, checkbox, radio...)</li>
+      <li><code>&lt;select&gt;</code> — padajući izbornik s opcijama</li>
+      <li><code>&lt;textarea&gt;</code> — višeredni tekstualni unos</li>
+      <li><code>&lt;label&gt;</code> — oznaka vezana uz element forme</li>
+      <li><code>&lt;button&gt;</code> — gumb za slanje ili akciju</li>
+    </ul>
+  </div>
+
+  <h2>HTML kod forme</h2>
+  <pre>&lt;form id="anketa"&gt;
+  &lt;label for="ime"&gt;Ime i prezime:&lt;/label&gt;
+  &lt;input type="text" id="ime" name="ime" placeholder="Npr. Ana Horvat" required&gt;
+
+  &lt;label for="razred"&gt;Razred:&lt;/label&gt;
+  &lt;select id="razred" name="razred"&gt;
+    &lt;option value="1"&gt;1. razred&lt;/option&gt;
+    &lt;option value="2"&gt;2. razred&lt;/option&gt;
+    &lt;option value="3"&gt;3. razred&lt;/option&gt;
+    &lt;option value="4"&gt;4. razred&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;label for="sati"&gt;Sati na društvenim mrežama dnevno:&lt;/label&gt;
+  &lt;input type="number" id="sati" name="sati" min="0" max="24"&gt;
+
+  &lt;label for="platforma"&gt;Omiljena platforma:&lt;/label&gt;
+  &lt;input type="text" id="platforma" name="platforma" placeholder="Npr. TikTok"&gt;
+
+  &lt;button type="submit"&gt;Pošalji odgovor&lt;/button&gt;
+&lt;/form&gt;</pre>
+
+  <h2>Živa demonstracija</h2>
+  <p>Ispuni formu i klikni Pošalji — podaci će se prikazati u tablici ispod.</p>
+
+  <div class="render-box">
+    <form id="anketa" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="ime">Ime i prezime:</label>
+        <input type="text" id="ime" name="ime" placeholder="Npr. Ana Horvat" required>
+      </div>
+      <div class="form-group">
+        <label for="razred">Razred:</label>
+        <select id="razred" name="razred">
+          <option value="1. razred">1. razred</option>
+          <option value="2. razred">2. razred</option>
+          <option value="3. razred" selected>3. razred</option>
+          <option value="4. razred">4. razred</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sati">Sati na društvenim mrežama dnevno:</label>
+        <input type="number" id="sati" name="sati" min="0" max="24" placeholder="Npr. 3">
+      </div>
+      <div class="form-group">
+        <label for="platforma">Omiljena platforma:</label>
+        <input type="text" id="platforma" name="platforma" placeholder="Npr. TikTok">
+      </div>
+      <button type="submit">Pošalji odgovor</button>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      ✅ Odgovor je uspješno dodan u tablicu ispod!
+    </div>
+
+    <table class="result-table" id="resultTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ime i prezime</th>
+          <th>Razred</th>
+          <th>Sati dnevno</th>
+          <th>Platforma</th>
+        </tr>
+      </thead>
+      <tbody id="resultBody">
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Što je HTML tablica?</h2>
+  <p>
+    HTML tablica (<code>&lt;table&gt;</code>) prikazuje podatke u redovima i stupcima.
+    Sastoji se od elemenata <code>&lt;thead&gt;</code> (zaglavlje), <code>&lt;tbody&gt;</code> (tijelo),
+    <code>&lt;tr&gt;</code> (redak), <code>&lt;th&gt;</code> (ćelija zaglavlja) i <code>&lt;td&gt;</code> (podatak).
+  </p>
+
+  <pre>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Ime&lt;/th&gt;
+      &lt;th&gt;Razred&lt;/th&gt;
+      &lt;th&gt;Sati&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ana Horvat&lt;/td&gt;
+      &lt;td&gt;3.a&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</pre>
+
+</div>
+
+<footer>
+  © 2026 Matija Šimić · Tehnička škola Ruđera Boškovića · Zagreb
+</footer>
+
+<script>
+  let counter = 0;
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const ime = document.getElementById('ime').value;
+    const razred = document.getElementById('razred').value;
+    const sati = document.getElementById('sati').value || '—';
+    const platforma = document.getElementById('platforma').value || '—';
+
+    counter++;
+    const table = document.getElementById('resultTable');
+    const body = document.getElementById('resultBody');
+    const msg = document.getElementById('successMsg');
+
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${counter}</td><td>${ime}</td><td>${razred}</td><td>${sati}</td><td>${platforma}</td>`;
+    body.appendChild(row);
+
+    table.style.display = 'table';
+    msg.style.display = 'block';
+    e.target.reset();
+
+    setTimeout(() => { msg.style.display = 'none'; }, 3000);
+  }
+</script>
+
+</body>
+</html>

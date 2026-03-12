@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dijagnostika IS – Matija Šimić</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">MS.</a>
+  <a href="index.html">Početna</a>
+  <a href="multimedija.html">Multimedija</a>
+  <a href="dijagnostika.html" class="active">Dijagnostika</a>
+  <a href="sjwp.html">SJWP</a>
+  <a href="poveznice.html">Poveznice</a>
+  <a href="raspored.html">Raspored</a>
+  <a href="certifikati.html">Certifikati</a>
+</nav>
+
+<div class="container">
+
+  <div class="hero-label" style="margin-top:2rem;">Predmet</div>
+  <h1>Dijagnostika i održavanje informacijskih sustava</h1>
+  <p>Predmet koji pokriva protokole usmjeravanja, mrežnu dijagnostiku, pouzdanost i dostupnost sustava. Vježbe se rade u alatu Cisco Packet Tracer.</p>
+
+  <span class="tag">Packet Tracer</span>
+  <span class="tag">RIP</span>
+  <span class="tag">OSPF</span>
+  <span class="tag">ICMP</span>
+  <span class="tag">ping / tracert</span>
+
+  <hr class="section-line">
+
+  <h2>Prezentacije</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Stanja sustava</h3>
+      <p>Prikaz mogućih stanja informacijskog sustava i prijelazi između njih.</p>
+      <a href="assets/files/10__Stanja_sustava___Kviz.pptx" class="btn" style="margin-top:0.75rem;">⬇ Preuzmi</a>
+    </div>
+    <div class="card">
+      <h3>Pouzdanost sustava</h3>
+      <p>Pojam pouzdanosti, mjere pouzdanosti i metode poboljšanja.</p>
+      <a href="assets/files/11__Pouzdanost___Kviz.pptx" class="btn" style="margin-top:0.75rem;">⬇ Preuzmi</a>
+    </div>
+    <div class="card">
+      <h3>Raspoloživost sustava</h3>
+      <p>Definicija i izračun raspoloživosti, utjecaj komponenti na sustav.</p>
+      <a href="assets/files/12__Raspoloz_ivost___Kviz.pptx" class="btn" style="margin-top:0.75rem;">⬇ Preuzmi</a>
+    </div>
+    <div class="card">
+      <h3>Komunikacija s korisnicima</h3>
+      <p>Metode i alati za učinkovitu komunikaciju s korisnicima sustava.</p>
+      <a href="assets/files/13__Komunikacija_s_korisnicima.pptx" class="btn" style="margin-top:0.75rem;">⬇ Preuzmi</a>
+    </div>
+  </div>
+
+  <hr class="section-line">
+
+  <h2>Laboratorijske vježbe</h2>
+
+  <!-- LV21 -->
+  <div class="card">
+    <h3>LV21 – Dijagnostika protokola RIP</h3>
+    <span class="tag tag-gray">Dijagnostika IS · Šimić Matija</span>
+
+    <p style="margin-top:1rem;"><strong>Priprema</strong></p>
+    <ul class="styled">
+      <li><strong>RIPv1 karakteristike:</strong> metrika = broj skokova (max 15), ažuriranje svakih 30 sekundi putem broadcastа, nema podrške za CIDR, nema autentifikacije</li>
+      <li><strong>Administrativna distanca (AD):</strong> vrednuje pouzdanost rutirajućih protokola — niža AD znači veću pouzdanost</li>
+      <li><strong>AD za RIP:</strong> 120</li>
+    </ul>
+
+    <p><strong>Provedba vježbe</strong></p>
+    <ul class="styled">
+      <li>Spajanje uređaja prema zadanoj topologiji u Packet Traceru</li>
+      <li>Provjera pingom: PC1 → R1 FA0/0, R1 S2/0, R2 S2/0</li>
+      <li>Pregled usmjerničke tablice naredbom <code>show ip route</code></li>
+      <li>Konfiguracija dinamičke RIP rute</li>
+      <li>Provjera protokola: <code>show ip protocols</code></li>
+      <li>Pregled RIP baze: <code>show ip rip database</code></li>
+      <li>Debug mode: <code>debug ip rip</code></li>
+    </ul>
+  </div>
+
+  <!-- LV22 -->
+  <div class="card">
+    <h3>LV22 – Dijagnostika protokola OSPF</h3>
+    <span class="tag tag-gray">Dijagnostika IS · Kralj & Šimić</span>
+
+    <p style="margin-top:1rem;"><strong>Problem bez OSPF-a</strong></p>
+    <p>
+      Bez konfiguriranog dinamičkog usmjeravanja, ping između PC1 i PC2 ne radi.
+      Razlog: usmjernici poznaju samo izravno povezane mreže (<em>connected routes</em>)
+      i R1 ne zna kako doći do mreže <code>192.168.10.0/24</code>.
+    </p>
+
+    <p><strong>Provedba</strong></p>
+    <ul class="styled">
+      <li>Konfiguracija sučelja na R1, R2, R3 prema tablici adresa</li>
+      <li>Provjera ping: PC1 → R1 ✅ · R1 → R2 ❌ · PC1 → PC2 ❌</li>
+      <li>Konfiguracija OSPF na svim usmjernicima</li>
+      <li>Nakon OSPF-a pojavljuju se O-rute u tablici usmjeravanja</li>
+      <li>Ping PC1 → PC2 → PC3 sada radi ✅</li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr><th>Naredba</th><th>Opis</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>show ip route</code></td><td>Pregled usmjerničke tablice</td></tr>
+        <tr><td><code>show ip route summary</code></td><td>Sažetak: broj ruta, memorija</td></tr>
+        <tr><td><code>show ip ospf neighbor</code></td><td>OSPF susjedi</td></tr>
+        <tr><td><code>show ip protocols</code></td><td>Konfigurirani protokoli</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LV23 -->
+  <div class="card">
+    <h3>LV23 – Napredno korištenje ping i tracert</h3>
+    <span class="tag tag-gray">Dijagnostika IS · Šimić Matija</span>
+
+    <p style="margin-top:1rem;"><strong>ICMP protokol</strong></p>
+    <p>
+      ICMP (Internet Control Message Protocol) služi za slanje kontrolnih i dijagnostičkih
+      poruka u IP mreži. Glavne uloge: obavještavanje o greškama u prijenosu paketa,
+      dijagnostika mreže i provjera dostupnosti računala.
+    </p>
+
+    <p><strong>TTL polje</strong></p>
+    <p>
+      TTL (Time To Live) određuje koliko puta paket može proći kroz mrežne uređaje.
+      Svaki ruter smanjuje TTL za 1. Kada TTL postane 0, paket se odbacuje,
+      a ruter šalje <em>ICMP Time Exceeded</em> poruku. Svrha: sprječavanje beskonačnog kruženja paketa.
+    </p>
+
+    <p><strong>Naredba ping — što smo naučili</strong></p>
+    <ul class="styled">
+      <li>Zadana veličina paketa u Windowsu: <strong>32 bajta</strong></li>
+      <li>Zadano se šalju <strong>4 upita</strong></li>
+      <li>Ping služi za provjeru dostupnosti, mjerenje latencije i otkrivanje gubitka paketa</li>
+      <li>Tracert otkriva svaki skok (hop) između izvora i odredišta</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Matija Šimić · Tehnička škola Ruđera Boškovića · Zagreb
+</footer>
+
+</body>
+</html>
